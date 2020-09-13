@@ -6,6 +6,11 @@ import java.util.Date;
 public class RateService {
     public static String calculateRate(String brand, Float amount) {
         Brand searchBrand = Brand.valueOf(brand);
+
+        if(searchBrand == null){
+            throw new BrandNotFoundException(brand);
+        }
+
         String rate = null ;
         float ratePercentage = 0f;
         Date date = new Date();

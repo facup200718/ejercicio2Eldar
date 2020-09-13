@@ -1,15 +1,11 @@
 package com.ejercicio2Eldar.ejercicio2Eldar;
 
 public class Transaction {
-    private Brand brand;
+    private String brand;
     private float amount;
+    private String rate;
 
-    public Transaction (Brand brand, float amount) {
-        this.brand = brand;
-        this.amount = amount;
-    }
-
-    public Brand getBrand() {
+    public String getBrand() {
         return brand;
     }
 
@@ -17,4 +13,11 @@ public class Transaction {
         return amount;
     }
 
+    public String getRate() {
+        return rate;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
 }
