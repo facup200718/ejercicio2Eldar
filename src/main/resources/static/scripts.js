@@ -25,5 +25,23 @@ function check() {
 } 
 
 function updateRate () {
+    var newTransaction = {
+      "brand": brand.value,
+      "amount": amount.value,
+      "rate": ""
+    };
+    $.ajax({
+      'url' : 'http://localhost:8080/transactions/calculateRate',
+      'type' : 'POST',
+      'contentType' : 'application/json',
+      'dataType': 'json',
+      'data' : JSON.stringify(newTransaction),
+      'success' : function(data){
+        alert(data)
+      },
+      'error': function(error){
+        console.log(error);
+      }
+    });
     document.getElementById("three").innerText = "Rates: " + 30
 }
