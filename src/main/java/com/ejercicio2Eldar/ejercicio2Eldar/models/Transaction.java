@@ -13,9 +13,7 @@ public class Transaction {
         return amount;
     }
 
-    public String getRate() {
-        return rate;
-    }
+    public String getRate() { return rate; }
 
     public void setRate(String rate) {
         this.rate = rate;

@@ -94,7 +94,7 @@
         <input id="brand" type="text" class="input one">
         <h3 class="two" id="two">Amount</h3>
         <input id="amount" type="number" class="input two">
-        <h3 class="three" id="three">Rates: </h3>
+        <h3 class="three" id="three">Interest Rate: </h3>
         <button onclick="check()">CALCULATE</button>
     </main>
 
@@ -105,8 +105,6 @@
         var amountValue
 
         function updateRate () {
-
-
             var newTransaction = {
               "brand": brandValue,
               "amount": amountValue,
@@ -120,7 +118,7 @@
               'dataType': 'json',
               'data' : JSON.stringify(newTransaction),
               'success' : function(data){
-                alert(data.rate);
+                    document.getElementById("three").innerText = "Interest Rate: " + data.rate
               },
               'error': function(error){
                 console.log(error);
@@ -138,9 +136,10 @@
                 } else {
                     if (amountValue <= 0) {
                         alert("Amount is negative or equals 0")
+                    } else if (amountValue >= 1000) {
+                        alert("Amount must be less than 1000")
                     } else {
                         updateRate()
-                        getRateData()
                     }
                 }
             }

@@ -31,16 +31,16 @@ public class RateController {
             System.out.println("Monto: " + transaction.getAmount());
             System.out.println("Marca: " + transaction.getBrand());
 
-            transaction.setRate(service.calculateRate(transaction.getBrand(), transaction.getAmount()));
+            transaction.setRate("$" + service.calculateRate(transaction.getBrand(), transaction.getAmount()));
 
             return transaction;
 
         }catch(BrandNotFoundException e){
-
+            transaction.setRate("Brand was not found");
             return transaction;
 
         }catch(Exception e2){
-
+            transaction.setRate("Unexpected error");
             return transaction;
 
         }
