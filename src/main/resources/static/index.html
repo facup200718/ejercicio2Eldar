@@ -5,6 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <title>Ejercicio 2 Eldar</title>
+    <style>
+        @font-face {
+            font-family: 'bank';
+            src: url(../fonts/Banks&MilesSingleLine.ttf) format('truetype');
+        }
+
+        :root {
+            --green: #7ACC2D;
+            --border: solid black 2px;
+        }
+
+        body {
+            animation-duration: 2s;
+            animation-name: fade;
+            background-color: var(--green);
+            display: flex;
+            font-family: 'bank';
+            justify-content: center;
+            padding-top: 100px;
+        }
+
+        #one {
+            animation-duration: 3s;
+            animation-name: fade;
+        }
+
+        #two {
+            animation-duration: 4s;
+            animation-name: fade;
+        }
+
+        #three {
+            animation-duration: 4.5s;
+            animation-name: fade;
+        }
+
+        main {
+            background-color: white;
+            border-radius: 30px;
+            height: 370px;
+            padding: 30px;
+            width: 370px;
+        }
+
+        .input {
+            border: var(--border);
+            border-radius: 0;
+            font-family: 'bank';
+            font-weight: bold;
+            height: 30px;
+        }
+
+        button{
+            border: none;
+            background-color:  var(--green);
+            border: var(--border);
+            box-shadow: 0 0 10px rgb(151, 151, 151);
+            border-radius: 2px;
+            color: white;
+            font-family: 'bank';
+            font-weight: bold;
+            height: 30px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        button:hover{
+            background-color:  #4f851d;
+            cursor: pointer;
+        }
+
+        @keyframes fade {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+    </style>
 </head>
 <body>
     <main>
@@ -16,7 +97,55 @@
         <h3 class="three" id="three">Rates: </h3>
         <button onclick="check()">CALCULATE</button>
     </main>
-    <script th:href="@{/js/scripts.js}"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        var brand = document.getElementById("brand")
+        var amount = document.getElementById("amount")
+        var brandValue
+        var amountValue
+
+
+        function check() {
+            if (brand.value.length != "" && amount.value.length != "") {
+                amountValue = parseInt(amount.value)
+                brandValue = brand.value
+
+                if(isNaN(amountValue)) {
+                    alert("Amount field value is not numeric")
+                } else {
+                    if (amountValue <= 0) {
+                        alert("Amount is negative or equals 0")
+                    } else {
+                        updateRate()
+                    }
+                }
+            }
+            else {
+                alert("There are blank spaces")
+            }
+        }
+
+        function updateRate () {
+            var newTransaction = {
+              "brand": brand.value,
+              "amount": amount.value,
+              "rate": ""
+            };
+            $.ajax({
+              'url' : 'http://localhost:8080/transactions/calculateRate',
+              'type' : 'POST',
+              'contentType' : 'application/json',
+              'dataType': 'json',
+              'data' : JSON.stringify(newTransaction),
+              'success' : function(data){
+                alert(data)
+              },
+              'error': function(error){
+                console.log(error);
+              }
+            });
+            document.getElementById("three").innerText = "Rates: " + 30
+        }
+    </script>
 </body>
 </html>
