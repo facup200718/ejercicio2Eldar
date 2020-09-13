@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'bank';
+    src: url(fonts/Banks&MilesSingleLine.ttf) format('truetype');
+}
+
+:root {
+    --green: #7ACC2D;
+    --border: solid black 2px;
+}
+
+body {
+    animation-duration: 2s;
+    animation-name: fade;
+    background-color: var(--green);
+    display: flex;
+    font-family: 'bank';
+    justify-content: center;
+    padding-top: 100px;
+}
+
+#one {
+    animation-duration: 3s;
+    animation-name: fade; 
+}
+
+#two {
+    animation-duration: 4s;
+    animation-name: fade; 
+}
+
+#three {
+    animation-duration: 4.5s;
+    animation-name: fade; 
+}
+
+main {
+    background-color: white;
+    border-radius: 30px;
+    height: 370px;
+    padding: 30px;
+    width: 370px;
+}
+
+.input {
+    border: var(--border);
+    border-radius: 0;
+    font-family: 'bank';
+    font-weight: bold;
+    height: 30px;
+}
+
+button{
+    border: none;
+    background-color:  var(--green);
+    border: var(--border);
+    box-shadow: 0 0 10px rgb(151, 151, 151);
+    border-radius: 2px;
+    color: white;
+    font-family: 'bank';
+    font-weight: bold;
+    height: 30px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover{
+    background-color:  #4f851d;
+}
+
+@keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
