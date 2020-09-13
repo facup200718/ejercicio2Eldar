@@ -41,7 +41,7 @@ public class RateService {
     }
 
     public static float rateLimits (float ratePercentage) {
-        ratePercentage = ratePercentage > 5 ? 5 : ratePercentage;
+        ratePercentage = ratePercentage > 5f ? 5f : ratePercentage;
         ratePercentage = ratePercentage < 0.3f ? 0.3f : ratePercentage;
         return ratePercentage;
     }

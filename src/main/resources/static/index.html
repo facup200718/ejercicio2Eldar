@@ -97,17 +97,40 @@
         <h3 class="three" id="three">Rates: </h3>
         <button onclick="check()">CALCULATE</button>
     </main>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     <script>
         var brand = document.getElementById("brand")
         var amount = document.getElementById("amount")
         var brandValue
         var amountValue
 
+        function updateRate () {
+
+
+            var newTransaction = {
+              "brand": brandValue,
+              "amount": amountValue,
+              "rate": ""
+            };
+
+            $.ajax({
+              'url' : 'http://localhost:8080/transactions/calculateRate',
+              'type' : 'POST',
+              'contentType' : 'application/json',
+              'dataType': 'json',
+              'data' : JSON.stringify(newTransaction),
+              'success' : function(data){
+                alert(data.rate);
+              },
+              'error': function(error){
+                console.log(error);
+              }
+            });
+        }
 
         function check() {
             if (brand.value.length != "" && amount.value.length != "") {
-                amountValue = parseInt(amount.value)
+                amountValue = parseFloat(amount.value)
                 brandValue = brand.value
 
                 if(isNaN(amountValue)) {
@@ -117,6 +140,7 @@
                         alert("Amount is negative or equals 0")
                     } else {
                         updateRate()
+                        getRateData()
                     }
                 }
             }
@@ -125,27 +149,8 @@
             }
         }
 
-        function updateRate () {
-            var newTransaction = {
-              "brand": brand.value,
-              "amount": amount.value,
-              "rate": ""
-            };
-            $.ajax({
-              'url' : 'http://localhost:8080/transactions/calculateRate',
-              'type' : 'POST',
-              'contentType' : 'application/json',
-              'dataType': 'json',
-              'data' : JSON.stringify(newTransaction),
-              'success' : function(data){
-                alert(data)
-              },
-              'error': function(error){
-                console.log(error);
-              }
-            });
-            document.getElementById("three").innerText = "Rates: " + 30
-        }
+
     </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </body>
 </html>
