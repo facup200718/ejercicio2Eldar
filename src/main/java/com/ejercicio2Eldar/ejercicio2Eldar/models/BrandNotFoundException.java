@@ -1,8 +1,8 @@
-package com.ejercicio2Eldar.ejercicio2Eldar;
+package com.ejercicio2Eldar.ejercicio2Eldar.models;
 
 public class BrandNotFoundException extends RuntimeException {
 
-    BrandNotFoundException(String brand) {
+    public BrandNotFoundException(String brand) {
         super("Could not find brand " + brand);
     }
 }

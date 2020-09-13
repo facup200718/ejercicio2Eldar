@@ -1,4 +1,4 @@
-package com.ejercicio2Eldar.ejercicio2Eldar;
+package com.ejercicio2Eldar.ejercicio2Eldar.models;
 
 public class Transaction {
     private String brand;

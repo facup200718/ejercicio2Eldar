@@ -1,4 +1,7 @@
-package com.ejercicio2Eldar.ejercicio2Eldar;
+package com.ejercicio2Eldar.ejercicio2Eldar.controllers;
+import com.ejercicio2Eldar.ejercicio2Eldar.services.RateService;
+import com.ejercicio2Eldar.ejercicio2Eldar.models.BrandNotFoundException;
+import com.ejercicio2Eldar.ejercicio2Eldar.models.Transaction;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +21,8 @@ public class RateController {
             consumes = "application/json",
             produces = "application/json")
 
-    public @ResponseBody Transaction calculateRate(@RequestBody Transaction transaction) throws Exception {
+    public @ResponseBody
+    Transaction calculateRate(@RequestBody Transaction transaction) throws Exception {
 
         try{
 

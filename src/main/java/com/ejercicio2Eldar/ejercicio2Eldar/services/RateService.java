@@ -1,4 +1,7 @@
-package com.ejercicio2Eldar.ejercicio2Eldar;
+package com.ejercicio2Eldar.ejercicio2Eldar.services;
+
+import com.ejercicio2Eldar.ejercicio2Eldar.models.Brand;
+import com.ejercicio2Eldar.ejercicio2Eldar.models.BrandNotFoundException;
 
 import java.util.Calendar;
 import java.util.Date;
