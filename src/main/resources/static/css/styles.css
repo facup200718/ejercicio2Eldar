@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'bank';
-    src: url(fonts/Banks&MilesSingleLine.ttf) format('truetype');
+    src: url(../fonts/Banks&MilesSingleLine.ttf) format('truetype');
 }
 
 :root {

@@ -31,7 +31,7 @@ function updateRate () {
       "rate": ""
     };
     $.ajax({
-      'url' : 'http://localhost:8080/transactions/calculateRate',
+      'url' : 'http://localhost:8080/',
       'type' : 'POST',
       'contentType' : 'application/json',
       'dataType': 'json',

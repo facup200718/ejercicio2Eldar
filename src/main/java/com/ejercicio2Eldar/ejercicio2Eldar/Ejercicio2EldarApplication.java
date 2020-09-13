@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableAutoConfiguration
+
 public class Ejercicio2EldarApplication {
 	public static void main( String[] args ) {
 		SpringApplication.run(Ejercicio2EldarApplication.class, args);

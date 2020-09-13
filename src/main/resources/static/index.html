@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
     <title>Ejercicio 2 Eldar</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         <h3 class="three" id="three">Rates: </h3>
         <button onclick="check()">CALCULATE</button>
     </main>
-    <script src="../static/scripts.js"></script>
+    <script th:href="@{/js/scripts.js}"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </body>
 </html>
